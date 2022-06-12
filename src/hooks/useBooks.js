@@ -7,9 +7,7 @@ export default function useBooks() {
 
   const get = async () => {
     const response = await apiBooks.getAllBooks();
-    {
-      console.log("HI UseBooks User Effect", response);
-    }
+
     setBooks(response);
   };
   useEffect(() => {

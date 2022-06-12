@@ -34,6 +34,7 @@ const HomePage = () => {
 
 function App() {
   const { user } = useContext(AppContext);
+  console.log("🚀 ~ file: App.js ~ line 37 ~ App ~ user", user);
 
   return (
     <>

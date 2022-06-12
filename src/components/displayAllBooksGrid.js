@@ -14,16 +14,12 @@ import { useNavigate } from "react-router-dom";
 
 export default function DisplayAllBooksGrid({ id }) {
   const { error, books } = useBooks(id);
-  console.log(
-    "🚀 ~ file: displayAllBooksGrid.js ~ line 17 ~ DisplayAllBooksGrid ~ books",
-    books
-  );
 
-  // const { addToCart } = useContext(AppContext);
+  const addToCart = useContext(AppContext);
 
   const navigate = useNavigate();
   const handleAddToCart = (book) => {
-    // addToCart(book);
+    addToCart.addToCart(book);
     alert(`You have added ${book.title} to your Cart`);
   };
 

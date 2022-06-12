@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import { shopReducer, cartActions } from "../reducers/shopReducer";
 
-export const AppContext = createContext();
+export const AppContext = createContext({});
 
 const AppContextProvider = ({ children }) => {
   const getUserFromLS = () => {
@@ -16,6 +16,7 @@ const AppContextProvider = ({ children }) => {
       return JSON.parse(cart);
     }
   };
+  const [data, setData] = useState("Hellow Sohaib");
   const [user, _setUser] = useState(getUserFromLS() ?? {});
   const [alert, setAlert] = useState({});
   const [cart, dispatch] = useReducer(shopReducer, getCartFromLS() ?? []);
@@ -34,9 +35,10 @@ const AppContextProvider = ({ children }) => {
     user,
     setUser,
     cart,
-    // addToCart:(book)=>{
-    //     dispatch({type: cartActions.addToCart, book})
-    // },
+
+    addToCart: (book) => {
+      dispatch({ type: cartActions.addToCart, book });
+    },
     addBulkToCart: (book) => {
       dispatch({ type: cartActions.addBulkToCart, book });
     },

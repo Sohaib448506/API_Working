@@ -14,14 +14,14 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <DisplayAllBooksGrid>
-        <ThemeProvider theme={primaryTheme}>
-          <AppContextProvider>
+      <AppContextProvider>
+        <DisplayAllBooksGrid>
+          <ThemeProvider theme={primaryTheme}>
             <CssBaseline />
             <App />
-          </AppContextProvider>
-        </ThemeProvider>
-      </DisplayAllBooksGrid>
+          </ThemeProvider>
+        </DisplayAllBooksGrid>
+      </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
